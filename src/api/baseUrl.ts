@@ -1,1 +1,1 @@
-export const baseApi = 'https://api.spacexdata.com/v4/ships';
+export const baseApi = 'https://api.spacexdata.com/v4';

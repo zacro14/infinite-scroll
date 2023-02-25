@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function MainPage({ children }: { children: React.ReactNode }) {
-  return <div className="max-w-7xl m-10">{children}</div>;
+  return <div className="m-10 max-w-full">{children}</div>;
 }
