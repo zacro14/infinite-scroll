@@ -32,33 +32,38 @@ type Ships = {
 };
 
 function App() {
-  async function getShips(): Promise<Ships[] | unknown> {
+  async function getShips(): Promise<Ships[]> {
     const ships = await Fetcher(`${baseApi}/ships`, { json: true });
-    return ships;
+    return ships as Ships[];
   }
   const query = useQuery({
     queryKey: ['ships'],
     queryFn: getShips,
+    initialData: [],
   });
 
   if (query.isError) return <div>'Error'</div>;
   if (query.isLoading) return <div>'Loading...';</div>;
 
+  console.log('data ->', query.data);
   return (
     <div className="App">
       <MainPage>
-        {query.data?.map((ship: Ships) => (
-          <Card title={ship.name} key={ship.id}>
-            <div className="h-48 w-96 rounded-lg overflow-hidden">
-              <img
-                className={'h-full w-full'}
-                src={ship.image}
-                alt={ship.name}
-              />
-            </div>
-            <pre>{ship.year_built}</pre>
-          </Card>
-        ))}
+        {query.data?.map((ship: Ships) => {
+          console.log('ship:', ship);
+          return (
+            <Card title={ship.name} key={ship.id}>
+              <div className="h-48 w-96 rounded-lg overflow-hidden">
+                <img
+                  className={'h-full w-full'}
+                  src={ship.image}
+                  alt={ship.name}
+                />
+              </div>
+              <pre>{ship.year_built}</pre>
+            </Card>
+          );
+        })}
       </MainPage>
     </div>
   );

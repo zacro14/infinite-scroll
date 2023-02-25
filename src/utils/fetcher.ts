@@ -4,7 +4,7 @@ interface FecthOptions extends RequestInit {
 
 export async function Fetcher<T>(
   url: string,
-  options: FecthOptions = {}
+  options: FecthOptions = { json: true }
 ): Promise<T> {
   const response = await fetch(url, options);
 
