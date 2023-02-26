@@ -1,9 +1,9 @@
+import { baseApi } from '@/api';
+import { Card } from '@/components/Card';
+import { Header } from '@/components/Header';
+import { MainPage } from '@/components/Layout';
+import { Fetcher } from '@/utils';
 import { useQuery } from '@tanstack/react-query';
-import { baseApi } from '../api';
-import { Card } from '../components/Card';
-import { Header } from '../components/Header';
-import { MainPage } from '../components/Layout';
-import { Fetcher } from '../utils';
 
 type Ships = {
   legacy_id: string;
@@ -32,7 +32,7 @@ type Ships = {
   id: string;
 };
 
-function App() {
+function Root() {
   async function getShips(): Promise<Ships[]> {
     const ships = await Fetcher(`${baseApi}/ships`);
     return ships as Ships[];
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
