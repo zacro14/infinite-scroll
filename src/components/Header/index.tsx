@@ -7,19 +7,19 @@ export const Header = () => {
       <div className="navbar-end">
         <ul className="menu menu-horizontal bg-base-100 rounded-box p-2">
           <li>
-            <a>Home</a>
+            <a href={'/'}>Home</a>
           </li>
           <li tabIndex={0}>
             <span>Services</span>
             <ul className="rounded-box bg-base-100 p-2">
               <li>
-                <a>Ships</a>
+                <a href={'/ships'}>Ships</a>
               </li>
               <li>
-                <a>Launches</a>
+                <a href={'/launches'}>Launches</a>
               </li>
               <li>
-                <a>Launchpads</a>
+                <a href={'/launchpads'}>Launchpads</a>
               </li>
             </ul>
           </li>
