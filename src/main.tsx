@@ -5,12 +5,25 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { NotFound } from './routes/error-page';
 import Root from './routes/root';
+import { Routes } from './constant';
+import About from './routes/about';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <NotFound />,
+    children: [],
+  },
+  {
+    path: Routes.Ships.path,
+    element: <Root />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: Routes.About.path,
+    element: <About />,
     errorElement: <NotFound />,
   },
 ]);
