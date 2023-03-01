@@ -1,5 +1,5 @@
-import { Header } from '@/components/Header';
 import { MainPage } from '@/components/Layout';
+import { useRouteError } from 'react-router-dom';
 
 export const NotFound = () => {
   return (
