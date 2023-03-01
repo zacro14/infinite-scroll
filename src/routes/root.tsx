@@ -1,6 +1,8 @@
 import { baseApi } from '@/api';
 import { Card } from '@/components/Card';
+import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero/inde';
 import { MainPage } from '@/components/Layout';
 import { Fetcher } from '@/utils';
 import { useQuery } from '@tanstack/react-query';
@@ -43,13 +45,13 @@ function Root() {
     initialData: [],
   });
 
-  if (query.isError) return <div>'Error'</div>;
-  if (query.isLoading) return <div>'Loading...';</div>;
+  if (query.isError) return <div>Error</div>;
+  if (query.isLoading) return <div>Loading...</div>;
 
   return (
     <div className="App">
-      <Header />
       <MainPage>
+        <Hero />
         {query.data?.map((ship: Ships) => {
           return (
             <Card title={ship.name} key={ship.id}>

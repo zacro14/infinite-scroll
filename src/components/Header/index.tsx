@@ -1,6 +1,8 @@
+import { Routes } from '@/constant';
+
 export const Header = () => {
   return (
-    <div className="navbar w-auto mx-10">
+    <div className="navbar w-auto mx-10 max-w-full">
       <div className="navbar-start">
         <h1 className="normal-case font-bold text-xl">SpaceXInfo.io</h1>
       </div>
@@ -13,7 +15,7 @@ export const Header = () => {
             <span>Services</span>
             <ul className="rounded-box bg-base-100 p-2">
               <li>
-                <a href={'/ships'}>Ships</a>
+                <a href={Routes.Ships.path}>Ships</a>
               </li>
               <li>
                 <a href={'/launches'}>Launches</a>
@@ -24,7 +26,7 @@ export const Header = () => {
             </ul>
           </li>
           <li>
-            <a>About</a>
+            <a href={Routes.About.path}>About</a>
           </li>
         </ul>
       </div>
