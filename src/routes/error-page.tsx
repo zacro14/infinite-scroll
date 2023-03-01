@@ -1,9 +1,9 @@
 import { Header } from '@/components/Header';
+import { MainPage } from '@/components/Layout';
 
 export const NotFound = () => {
   return (
-    <>
-      <Header />
+    <MainPage>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -15,6 +15,6 @@ export const NotFound = () => {
           </div>
         </div>
       </div>
-    </>
+    </MainPage>
   );
 };
