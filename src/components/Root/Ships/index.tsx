@@ -43,6 +43,7 @@ type Ships = {
   prevPage: number | null;
   nextPage: number;
 };
+
 const Ships = () => {
   async function getShips(): Promise<Ships> {
     const ships = await Fetcher(`${API}/ships/query`, {
@@ -64,6 +65,7 @@ const Ships = () => {
 
   if (query.isError) return <div>Error</div>;
   if (query.isLoading) return <div>Loading...</div>;
+
   return (
     <section className="my-5">
       <div className="flex justify-between align-middle">
