@@ -1,63 +1,10 @@
 import { baseApi as API } from '@/api';
+import { getShips, ShipsData } from '@/api/ships';
 import { Routes } from '@/constant';
 import { Fetcher } from '@/utils';
 import { useQuery } from '@tanstack/react-query';
 
-type ShipsData = {
-  legacy_id: string;
-  model: null;
-  type: string;
-  roles: string[];
-  imo: number;
-  mmsi: number;
-  abs: number;
-  class: number;
-  mass_kg: number;
-  mass_lbs: number;
-  year_built: number;
-  home_port: string;
-  status: string;
-  speed_kn: number | null;
-  course_deg: number | null;
-  latitude: number | null;
-  longitude: number | null;
-  last_ais_update: string | null;
-  link: string;
-  image: string;
-  launches: string[];
-  name: string;
-  active: boolean;
-  id: string;
-};
-
-type Ships = {
-  docs: ShipsData[];
-  totalDocs: number;
-  offset: number;
-  limit: number;
-  totalPages: number;
-  page: number;
-  pagingCounter: number;
-  hasPrevPage: boolean;
-  hasNextPage: boolean;
-  prevPage: number | null;
-  nextPage: number;
-};
-
 const Ships = () => {
-  async function getShips(): Promise<Ships> {
-    const ships = await Fetcher(`${API}/ships/query`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: {},
-        options: {},
-      }),
-    });
-    return ships as Ships;
-  }
   const query = useQuery({
     queryKey: ['ships'],
     queryFn: getShips,
@@ -70,7 +17,9 @@ const Ships = () => {
     <section className="my-5">
       <div className="flex justify-between align-middle">
         <h1 className="font-bold text-2xl">Ships for Space x</h1>
-        <a href={Routes.Ships.path}>See All</a>
+        <a className={'link'} href={Routes.Ships.path}>
+          See All
+        </a>
       </div>
       <div className="snap-x flex container overflow-x-auto pt-5 h-96 mx-auto">
         {query.data?.docs.map((ship: ShipsData) => {
