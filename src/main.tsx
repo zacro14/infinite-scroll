@@ -7,6 +7,7 @@ import { NotFound } from './routes/error-page';
 import Root from './routes/root';
 import { Routes } from './constant';
 import About from './routes/about';
+import Ships from './routes/ships';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
   {
     path: Routes.About.path,
     element: <About />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: Routes.Ships.path,
+    element: <Ships />,
     errorElement: <NotFound />,
   },
 ]);

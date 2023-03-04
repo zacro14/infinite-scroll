@@ -6,7 +6,9 @@ export function MainPage({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main className="m-10 max-w-full min-h-screen mx-40">{children}</main>
+      <main className="m-10 max-w-full min-h-screen mx-10 md:mx-20 lg:mx-40">
+        {children}
+      </main>
       <Footer />
     </>
   );
