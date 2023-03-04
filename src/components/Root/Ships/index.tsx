@@ -1,7 +1,8 @@
-import { baseApi as API } from '@/api';
 import { getShips, ShipsData } from '@/api/ships';
+import { MainPage } from '@/components/Layout';
+import { CardSkeleton } from '@/components/Skeleton';
 import { Routes } from '@/constant';
-import { Fetcher } from '@/utils';
+import { NotFound } from '@/routes/error-page';
 import { useQuery } from '@tanstack/react-query';
 
 const Ships = () => {
@@ -10,8 +11,17 @@ const Ships = () => {
     queryFn: getShips,
   });
 
-  if (query.isError) return <div>Error</div>;
-  if (query.isLoading) return <div>Loading...</div>;
+  if (query.isError) return <NotFound />;
+  if (query.isLoading)
+    return (
+      <MainPage>
+        <div className={'grid grid-cols-4 gap-4'}>
+          {[0, 2, 3, 4].map((item: number) => (
+            <CardSkeleton key={item} />
+          ))}
+        </div>
+      </MainPage>
+    );
 
   return (
     <section className="my-5">
