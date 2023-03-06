@@ -41,11 +41,7 @@ const Ships = () => {
                   <p>{ship.status}</p>
                 </div>
                 <figure className={'h-48'}>
-                  <img
-                    src={ship.image}
-                    alt={ship.name}
-                    className={'object-cover'}
-                  />
+                  <img src={ship.image} alt={ship.name} />
                 </figure>
               </div>
             </div>

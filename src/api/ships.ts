@@ -42,7 +42,7 @@ export type Ships = {
   nextPage: number;
 };
 
-export async function getShips(): Promise<Ships> {
+export async function getShips({ pageParam = 1 }): Promise<Ships> {
   const ships = await Fetcher(`${API}/ships/query`, {
     method: 'POST',
     headers: {
@@ -50,7 +50,9 @@ export async function getShips(): Promise<Ships> {
     },
     body: JSON.stringify({
       query: {},
-      options: {},
+      options: {
+        page: pageParam,
+      },
     }),
   });
   return ships as Ships;
