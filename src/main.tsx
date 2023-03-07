@@ -8,6 +8,8 @@ import Root from './routes/root';
 import { Routes } from './constant';
 import About from './routes/about';
 import Ships from './routes/ships';
+import Services from './routes/services';
+import Launches from './routes/launches';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -15,7 +17,6 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <NotFound />,
-    children: [],
   },
   {
     path: Routes.About.path,
@@ -23,9 +24,19 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
   },
   {
-    path: Routes.Ships.path,
-    element: <Ships />,
+    path: Routes.Services.path,
+    element: <Services />,
     errorElement: <NotFound />,
+    children: [
+      {
+        element: <Ships />,
+        path: Routes.Ships.path,
+      },
+      {
+        element: <Launches />,
+        path: Routes.Launches.path,
+      },
+    ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

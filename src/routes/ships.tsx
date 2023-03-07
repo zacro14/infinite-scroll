@@ -46,7 +46,7 @@ const Ships = () => {
   return (
     <MainPage>
       <div className={'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'}>
-        {query.data.pages.map((ship) =>
+        {query.data.pages?.map((ship) =>
           ship.docs.map((data) => (
             <div
               key={data.id}

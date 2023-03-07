@@ -1,4 +1,5 @@
 import { Routes } from '@/constant';
+import { Link, Route } from 'react-router-dom';
 
 export const Header = () => {
   return (
@@ -12,16 +13,18 @@ export const Header = () => {
             <a href={'/'}>Home</a>
           </li>
           <li tabIndex={0}>
-            <span>Services</span>
+            <span>
+              <Link to={Routes.Services.path}>Services</Link>
+            </span>
             <ul className="rounded-box bg-base-100 p-2 z-10">
               <li>
-                <a href={Routes.Ships.path}>Ships</a>
+                <Link to={Routes.Ships.path}>Ships</Link>
               </li>
               <li>
-                <a href={'/launches'}>Launches</a>
+                <Link to={Routes.Launches.path}>Launches</Link>
               </li>
               <li>
-                <a href={'/launchpads'}>Launchpads</a>
+                <Link to={Routes.Launches.path}>Launchpads</Link>
               </li>
             </ul>
           </li>
