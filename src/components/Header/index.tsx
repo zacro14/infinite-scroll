@@ -2,7 +2,7 @@ import { Routes } from '@/constant';
 
 export const Header = () => {
   return (
-    <div className="navbar w-auto max-w-full mx-40">
+    <nav className="navbar w-auto max-w-full mx-40">
       <div className="navbar-start">
         <h1 className="normal-case font-bold text-xl">SpaceXInfo.io</h1>
       </div>
@@ -13,7 +13,7 @@ export const Header = () => {
           </li>
           <li tabIndex={0}>
             <span>Services</span>
-            <ul className="rounded-box bg-base-100 p-2">
+            <ul className="rounded-box bg-base-100 p-2 z-10">
               <li>
                 <a href={Routes.Ships.path}>Ships</a>
               </li>
@@ -30,6 +30,6 @@ export const Header = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };

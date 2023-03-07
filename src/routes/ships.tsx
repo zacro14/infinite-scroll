@@ -54,7 +54,7 @@ const Ships = () => {
             >
               <figure className={'h-52 rounded-t-lg'}>
                 <img
-                  className={'rounded-lg'}
+                  className={'rounded-lg h-full w-full object-cover'}
                   src={data.image}
                   alt={data.name}
                 />
@@ -73,23 +73,8 @@ const Ships = () => {
         {query.hasNextPage ? (
           <button className={'btn btn-circle loading'}></button>
         ) : (
-          <span className={'text-slate-500'}>You're at the end</span>
+          <span className={'text-slate-500'}>Nothing more here</span>
         )}
-        {/* {query.hasNextPage ? (
-          <button
-            className={'btn'}
-            onClick={() => query.fetchNextPage()}
-            disabled={!query.hasNextPage || query.isFetchingNextPage}
-          >
-            {query.isFetchingNextPage
-              ? 'Loading more...'
-              : query.hasNextPage && 'Load More'}
-          </button>
-        ) : (
-          query.hasNextPage === false && (
-            <span className={'text-slate-500'}>You're at the end</span>
-          )
-        )} */}
       </div>
     </MainPage>
   );
