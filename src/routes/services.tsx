@@ -4,12 +4,11 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Services = () => {
   return (
-    <div>
-      Services
+    <MainPage>
       <Link to={Routes.Ships.path}>ships</Link>
       <Link to={Routes.Launches.path}>launches</Link>
       <Outlet />
-    </div>
+    </MainPage>
   );
 };
 

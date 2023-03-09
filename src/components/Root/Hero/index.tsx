@@ -9,7 +9,7 @@ export function Hero() {
             entrepreneur Elon Musk with the goal of making space travel more
             accessible and sustainable for humanity.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary rounded-full">Get Started</button>
         </div>
       </div>
     </div>

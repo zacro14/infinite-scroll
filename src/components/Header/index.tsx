@@ -1,5 +1,5 @@
 import { Routes } from '@/constant';
-import { Link, Route } from 'react-router-dom';
+import { Link, Outlet, Route } from 'react-router-dom';
 
 export const Header = () => {
   return (

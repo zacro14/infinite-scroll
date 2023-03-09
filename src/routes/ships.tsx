@@ -44,15 +44,15 @@ const Ships = () => {
     );
 
   return (
-    <MainPage>
+    <>
       <div className={'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'}>
         {query.data.pages?.map((ship) =>
           ship.docs.map((data) => (
             <div
               key={data.id}
-              className="card w-40 md:w-64 lg:w-96 bg-base-100 hover:shadow-xl cursor-pointer"
+              className="card w-40 md:w-64 lg:w-96 bg-base-100 cursor-pointer"
             >
-              <figure className={'h-52 rounded-t-lg'}>
+              <figure className={'h-52 rounded-lg'}>
                 <img
                   className={'rounded-lg h-full w-full object-cover'}
                   src={data.image}
@@ -60,9 +60,14 @@ const Ships = () => {
                 />
               </figure>
 
-              <div className="card-body">
+              <div className="card-body p-5">
                 <h2 className="card-title">{data.name}</h2>
                 <p>{data.year_built}</p>
+                <div className="flex gap-2">
+                  {data.roles.map((role) => (
+                    <span className="badge badge-lg">{role}</span>
+                  ))}
+                </div>
               </div>
             </div>
           ))
@@ -76,7 +81,7 @@ const Ships = () => {
           <span className={'text-slate-500'}>Nothing more here</span>
         )}
       </div>
-    </MainPage>
+    </>
   );
 };
 
