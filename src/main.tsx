@@ -10,6 +10,7 @@ import About from './routes/about';
 import Ships from './routes/ships';
 import Services from './routes/services';
 import Launches from './routes/launches';
+import ShipPage from './routes/ship-details';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: Routes.Launches.path,
       },
     ],
+  },
+  {
+    element: <ShipPage />,
+    path: Routes.Ship.path,
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

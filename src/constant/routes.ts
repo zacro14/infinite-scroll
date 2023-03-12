@@ -3,6 +3,10 @@ export const Routes = {
     name: 'Ships',
     path: '/service/ships',
   },
+  Ship: {
+    name: 'Ship',
+    path: '/service/ships/:id',
+  },
   About: {
     name: 'About Us',
     path: '/about-us',

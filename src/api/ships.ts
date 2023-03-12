@@ -42,6 +42,33 @@ export type Ships = {
   nextPage: number;
 };
 
+type Ship = {
+  legacy_id: string;
+  model: null;
+  type: string;
+  roles: string[];
+  imo: number;
+  mmsi: number;
+  abs: number;
+  class: number;
+  mass_kg: number;
+  mass_lbs: number;
+  year_built: number;
+  home_port: string;
+  status: string;
+  speed_kn: null;
+  course_deg: null;
+  latitude: null;
+  longitude: null;
+  last_ais_update: null;
+  link: string;
+  image: string;
+  launches: string[];
+  name: string;
+  active: boolean;
+  id: string;
+};
+
 export async function getShips({ pageParam = 1 }): Promise<Ships> {
   const ships = await Fetcher(`${API}/ships/query`, {
     method: 'POST',
@@ -56,4 +83,9 @@ export async function getShips({ pageParam = 1 }): Promise<Ships> {
     }),
   });
   return ships as Ships;
+}
+
+export async function getShipDetails(id: string | undefined): Promise<Ship> {
+  const shipData = await Fetcher(`${API}/ships/${id}`);
+  return shipData as Ship;
 }
