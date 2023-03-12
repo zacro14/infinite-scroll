@@ -1,8 +1,9 @@
 import { Routes } from '@/constant';
+import { Link, Outlet, Route } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <div className="navbar w-auto max-w-full mx-40">
+    <nav className="navbar w-auto max-w-full mx-40">
       <div className="navbar-start">
         <h1 className="normal-case font-bold text-xl">SpaceXInfo.io</h1>
       </div>
@@ -12,16 +13,18 @@ export const Header = () => {
             <a href={'/'}>Home</a>
           </li>
           <li tabIndex={0}>
-            <span>Services</span>
-            <ul className="rounded-box bg-base-100 p-2">
+            <span>
+              <Link to={Routes.Services.path}>Services</Link>
+            </span>
+            <ul className="rounded-box bg-base-100 p-2 z-10">
               <li>
-                <a href={Routes.Ships.path}>Ships</a>
+                <Link to={Routes.Ships.path}>Ships</Link>
               </li>
               <li>
-                <a href={'/launches'}>Launches</a>
+                <Link to={Routes.Launches.path}>Launches</Link>
               </li>
               <li>
-                <a href={'/launchpads'}>Launchpads</a>
+                <Link to={Routes.Launches.path}>Launchpads</Link>
               </li>
             </ul>
           </li>
@@ -30,6 +33,6 @@ export const Header = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
