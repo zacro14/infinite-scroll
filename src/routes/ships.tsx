@@ -2,7 +2,7 @@ import { getShips } from '@/api/ships';
 import { MainPage } from '@/components/Layout';
 import { CardSkeleton } from '@/components/Skeleton';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NotFound } from './error-page';
 
@@ -49,11 +49,8 @@ const Ships = () => {
       <div className={'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'}>
         {query.data.pages?.map((ship) =>
           ship.docs.map((data) => (
-            <Link to={`/service/ships/${data.id}`}>
-              <div
-                key={data.id}
-                className="card w-40 md:w-64 lg:w-96 bg-base-100 cursor-pointer"
-              >
+            <Link key={data.id} to={`/service/ships/${data.id}`}>
+              <div className="card w-40 md:w-64 lg:w-96 bg-base-100 cursor-pointer">
                 <figure className={'h-52 rounded-lg'}>
                   <img
                     className={'rounded-lg h-full w-full object-cover'}
@@ -67,7 +64,7 @@ const Ships = () => {
                   <p>{data.year_built}</p>
                   <div className="flex gap-2">
                     {data.roles.map((role) => (
-                      <span className="badge badge-lg">{role}</span>
+                      <span className="badge badge-lg truncate">{role}</span>
                     ))}
                   </div>
                 </div>

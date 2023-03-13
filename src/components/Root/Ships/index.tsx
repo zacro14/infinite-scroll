@@ -35,17 +35,19 @@ const Ships = () => {
       <div className="snap-x flex container overflow-x-auto pt-5 h-96 mx-auto">
         {query.data?.docs.map((ship: ShipsData) => {
           return (
-            <div key={ship.id} className="snap-center mx-3 w-96">
-              <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                  <h2 className="card-title">{ship.name}</h2>
-                  <p>{ship.status}</p>
+            <Link key={ship.id} to={`/service/ships/${ship.id}`}>
+              <div key={ship.id} className="snap-center mx-3 w-96">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <div className="card-body">
+                    <h2 className="card-title">{ship.name}</h2>
+                    <p>{ship.status}</p>
+                  </div>
+                  <figure className={'h-48'}>
+                    <img src={ship.image} alt={ship.name} />
+                  </figure>
                 </div>
-                <figure className={'h-48'}>
-                  <img src={ship.image} alt={ship.name} />
-                </figure>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
