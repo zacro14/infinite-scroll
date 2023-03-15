@@ -5,7 +5,9 @@ export const Header = () => {
   return (
     <nav className="navbar w-auto max-w-full mx-40">
       <div className="navbar-start">
-        <h1 className="normal-case font-bold text-xl">SpaceXInfo.io</h1>
+        <h1 className="normal-case font-bold text-xl">
+          <Link to={'/'}>SpaceXInfo.io</Link>
+        </h1>
       </div>
       <div className="navbar-end">
         <ul className="menu menu-horizontal bg-base-100 rounded-box p-2">
@@ -16,7 +18,7 @@ export const Header = () => {
             <span>
               <Link to={Routes.Services.path}>Services</Link>
             </span>
-            <ul className="rounded-box bg-base-100 p-2 z-10">
+            <ul className=" rounded-sm bg-base-100 p-2 z-10 shadow-md">
               <li>
                 <Link to={Routes.Ships.path}>Ships</Link>
               </li>

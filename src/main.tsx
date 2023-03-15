@@ -41,6 +41,7 @@ const router = createBrowserRouter([
   },
   {
     element: <ShipPage />,
+    errorElement: <NotFound />,
     path: Routes.Ship.path,
   },
 ]);
